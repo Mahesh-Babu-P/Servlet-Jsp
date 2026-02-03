@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+
+<style>
+/* ---------- Animated Background ---------- */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    background: linear-gradient(-45deg, #4facfe, #00f2fe, #43e97b, #fa709a);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Floating color bubbles */
+body::before,
+body::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: float 8s infinite alternate;
+}
+
+body::before {
+    top: -100px;
+    left: -100px;
+}
+
+body::after {
+    bottom: -100px;
+    right: -100px;
+}
+
+@keyframes float {
+    from { transform: translateY(0px); }
+    to { transform: translateY(60px); }
+}
+
+/* ---------- Form Card ---------- */
+.login-box {
+    background: rgba(255,255,255,0.9);
+    padding: 30px 40px;
+    width: 350px;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 1s ease;
+    transition: transform .3s;
+}
+
+.login-box:hover {
+    transform: scale(1.02);
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform: translateY(20px);}
+    to {opacity:1; transform: translateY(0);}
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* ---------- Inputs ---------- */
+label {
+    font-weight: bold;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    padding: 11px;
+    margin-top: 6px;
+    margin-bottom: 18px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: .3s;
+}
+
+input:focus {
+    border-color: #4facfe;
+    outline: none;
+    box-shadow: 0 0 8px rgba(79,172,254,0.5);
+}
+
+/* ---------- Button ---------- */
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #00c6fb, #005bea);
+}
+
+/* ---------- Link ---------- */
+.json-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.json-link a {
+    text-decoration: none;
+    color: #4facfe;
+    font-weight: bold;
+}
+
+.json-link a:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+    <h2>User Registration</h2>
+
+    <form action="validate" method="post">
+        <label>Name</label>
+        <input type="text" name="name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Mobile Number</label>
+        <input type="tel" name="mobilenumber" pattern="[0-9]{10}" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <div class="json-link">
+        <a href="result">View Registered Users</a>
+    </div>
+</div>
+
+</body>
+</html>

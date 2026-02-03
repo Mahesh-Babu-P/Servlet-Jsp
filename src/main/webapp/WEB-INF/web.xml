@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+    xmlns="https://jakarta.ee/xml/ns/jakartaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+    version="6.0">
+  <display-name>AppName</display-name>
+  
+  <context-param>
+  <param-name>name</param-name>
+  <param-value>sample value</param-value>
+  </context-param>
+  
+  <servlet>
+  <servlet-name>A</servlet-name>  <!-- classname -->
+  <servlet-class>sample.A</servlet-class>  <!--  packagename.classname -->
+  <init-param>
+  <param-name>name</param-name>
+  <param-value>sample</param-value>
+  </init-param>
+  
+  </servlet>
+  
+  <servlet>
+  <servlet-name>HelloSample</servlet-name>
+  <servlet-class>sample.HelloSample</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>HelloSample</servlet-name>
+  <url-pattern>/sayHello</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>HiSample</servlet-name>  <!-- classname -->
+  <servlet-class>sample.HiSample</servlet-class>  <!--  packagename.classname -->
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>HiSample</servlet-name>
+  <url-pattern>/sayHi</url-pattern> <!-- end point -->
+  </servlet-mapping>
+  
+  <!-- Register form servlet's inin param mapping -->
+  <servlet-mapping>
+  <servlet-name>display</servlet-name>
+  <url-pattern>/result</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  <servlet-name>display</servlet-name>
+  <servlet-class>sample.ResultClass</servlet-class>
+  
+  <init-param>
+	<param-name>url</param-name>
+	<param-value>jdbc:mysql://localhost:3306/servletdb1</param-value>
+  </init-param>
+  <init-param>
+	<param-name>uname</param-name>
+	<param-value>root</param-value>
+	</init-param>
+	<init-param>
+	<param-name>pass</param-name>
+	<param-value>9797*Ak</param-value>
+</init-param>
+  </servlet>
+  
+  <!-- login form servlet's inin param mapping --> 
+  
+  <servlet-mapping>
+  <servlet-name>insert</servlet-name>
+  <url-pattern>/validate</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  <servlet-name>insert</servlet-name>
+  <servlet-class>sample.Validate</servlet-class>
+  
+  <init-param>
+	<param-name>url</param-name>
+	<param-value>jdbc:mysql://localhost:3306/servletdb1</param-value>
+  </init-param>
+  <init-param>
+	<param-name>uname</param-name>
+	<param-value>root</param-value>
+	</init-param>
+	<init-param>
+	<param-name>pass</param-name>
+	<param-value>9797*Ak</param-value>
+</init-param>
+  </servlet>
+  
+</web-app>

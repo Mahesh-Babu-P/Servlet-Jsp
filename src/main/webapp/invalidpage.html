@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Invalid Page</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #000000, #4b0082);
+    color: white;
+}
+
+.container {
+    background: #111;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    width: 360px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    animation: fadeIn 1s ease, shake 0.5s;
+}
+
+.container img {
+    width: 230px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    animation: float 3s infinite ease-in-out;
+}
+
+h2 {
+    color: #ff3cac;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: #ff3cac;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #784ba0;
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes shake {
+    0% {transform: translateX(-5px);}
+    25% {transform: translateX(5px);}
+    50% {transform: translateX(-5px);}
+    75% {transform: translateX(5px);}
+    100% {transform: translateX(0);}
+}
+
+@keyframes float {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(-8px);}
+    100% {transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Funny dog error image -->
+    <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a"
+         alt="Funny Dog Error">
+
+    <h2>Invalid data entered!</h2>
+    <p>Please try again.</p>
+
+    <p id="retry"></p>
+
+    <button class="btn" onclick="history.back()">Try Again</button>
+
+</div>
+
+<script>
+/* Retry counter */
+let count = sessionStorage.getItem("retryCount") || 0;
+count++;
+sessionStorage.setItem("retryCount", count);
+document.getElementById("retry").innerText =
+    "Failed attempts: " + count;
+
+/* Auto redirect after 5 seconds 
+setTimeout(() => {
+    history.back();
+}, 5000);*/
+</script>
+
+</body>
+</html>
