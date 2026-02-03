@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/a")
 public class A extends HttpServlet
-{
+{  // hello mahesh
      public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
      {
 //    	 req.setAttribute("name", "mahesh");
